@@ -7,18 +7,22 @@ public class NavigationPanel {
     private WebDriver driver;
 
 
-@FindBy(xpath= "//*[@id=\"n-mainpage\"]/a")
-    private WebElement accueilLink;
+    @FindBy(xpath = "//*[@id=\"n-mainpage\"]/a")
+    private WebElement lienAccueil;
+    @FindBy(partialLinkText = "Aide")
+    private WebElement lienAide;
 
 
     public NavigationPanel(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void retourHomePage(){
-        accueilLink.click();
+    public void retourHomePage() {
+        lienAccueil.click();
+    }
 
-
+    public void accesAide() {
+        lienAide.click();
     }
 
 }

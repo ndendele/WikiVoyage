@@ -39,8 +39,10 @@ public class PageAccueil {
 
     public Header rechercheHeader(WebDriver driver){
         return new Header(driver);
+    }
 
-
+    public NavigationPanel navigationPanel (WebDriver driver){
+        return new NavigationPanel(driver);
     }
 
 }

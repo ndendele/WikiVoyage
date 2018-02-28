@@ -1,5 +1,4 @@
 import org.junit.*;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,9 +20,7 @@ public class TestClass {
      HomePage homePage= new HomePage(driver);
      homePage.setSearchInput("Paris");
      homePage.getSearchButton();
-     Destination destination= new Destination(driver);
-     Assert.assertEquals("Paris", destination.verification());
-
+     Assert.assertEquals("Paris", new Destination(driver).verification());
     }
 
     @Test
@@ -55,11 +52,15 @@ public class TestClass {
         PageAccueil pageAccueil = new PageAccueil(driver);
         pageAccueil.rechercheHeader(driver).search("Lyon").retourHomePage();
         Assert.assertEquals("Accueil", new PageAccueil(driver).verification());
-
-
-
-
-
+    }
+    //Test du lien vers l'aide
+    @Test
+    public void test4() {
+        HomePage homePage = new HomePage(driver);
+        homePage.selectFrancais();
+        PageAccueil pageAccueil = new PageAccueil(driver);
+        pageAccueil.navigationPanel(driver).accesAide();
+        Assert.assertEquals("https://fr.wikivoyage.org/wiki/Aide:Accueil", driver.getCurrentUrl());
     }
 
     @After

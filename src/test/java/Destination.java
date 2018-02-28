@@ -19,6 +19,5 @@ public class Destination {
         PageFactory.initElements(driver, this);
         WebDriverWait wait10= new WebDriverWait (driver,10);
         wait10.until(ExpectedConditions.visibilityOf(destination));
-
     }
 }
