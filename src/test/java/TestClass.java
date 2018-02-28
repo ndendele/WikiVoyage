@@ -14,7 +14,6 @@ public class TestClass {
     }
 
     @Test
-    @Ignore
     //Test entrer d'une ville
     public void test(){
      HomePage homePage= new HomePage(driver);
@@ -24,7 +23,6 @@ public class TestClass {
     }
 
     @Test
-    @Ignore
     //Test selection d'une langue
     public void test2(){
         HomePage homePage= new HomePage(driver);
@@ -44,7 +42,6 @@ public class TestClass {
 
 
     @Test
-    @Ignore
     //Test recherche header puis retourne à HomePage
     public void test3(){
         HomePage homePage= new HomePage(driver);
@@ -53,6 +50,7 @@ public class TestClass {
         pageAccueil.rechercheHeader(driver).search("Lyon").retourHomePage();
         Assert.assertEquals("Accueil", new PageAccueil(driver).verification());
     }
+
     //Test du lien vers l'aide
     @Test
     public void test4() {
