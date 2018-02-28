@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class TestClass {
 
     WebDriver driver = new ChromeDriver();
+    String recherche;
 
     @Before
     public void init(){
@@ -14,8 +15,20 @@ public class TestClass {
     }
 
     @Test
+    //Test pour entrer la ville à rechercher
+    public void test() {
+        recherche= System.getProperty("recherche");
+        HomePage homePage= new HomePage(driver);
+        homePage.setSearchInput(recherche);
+        homePage.getSearchButton();
+  
+    }
+
+
+
+    @Test
     //Test entrer d'une ville
-    public void test(){
+    public void test1(){
      HomePage homePage= new HomePage(driver);
      homePage.setSearchInput("Paris");
      homePage.getSearchButton();
@@ -51,8 +64,9 @@ public class TestClass {
         Assert.assertEquals("Accueil", new PageAccueil(driver).verification());
     }
 
-    //Test du lien vers l'aide
+
     @Test
+    //Test du lien vers l'aide
     public void test4() {
         HomePage homePage = new HomePage(driver);
         homePage.selectFrancais();
@@ -60,6 +74,10 @@ public class TestClass {
         pageAccueil.navigationPanel(driver).accesAide();
         Assert.assertEquals("https://fr.wikivoyage.org/wiki/Aide:Accueil", driver.getCurrentUrl());
     }
+
+
+
+
 
     @After
     public void quit(){

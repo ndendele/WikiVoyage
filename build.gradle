@@ -14,3 +14,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'3.9.1'
 }
+
+test{
+    systemProperty "recherche", System.getProperty("recherche")
+}
